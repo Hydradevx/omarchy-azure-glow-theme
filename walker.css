@@ -1,6 +1,72 @@
-@define-color selected-text #64B5F6;
-@define-color text #E6F0FF;
-@define-color base #0A0E14;
-@define-color border #64B5F6;
-@define-color foreground #E6F0FF;
-@define-color background #0A0E14;
+@define-color selected-text #40C4FF;  /* Bright sky blue */
+@define-color text #B3E5FC;           /* Soft glowing cyan */
+@define-color base #0A0E14;           /* Deep midnight blue */
+@define-color surface #081018;        /* Abyssal navy */
+@define-color overlay #1B2A3A;        /* Dim steel blue */
+@define-color muted #4DD0E1;          /* Lively aqua */
+@define-color subtle #00B0FF;         /* Rich azure */
+@define-color border #40C4FF;         /* Bright sky blue */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+#window {
+    background: rgba(10, 14, 20, 0.95);
+    border: 2px solid @border;
+    border-radius: 10px;
+}
+
+#box {
+    padding: 20px;
+}
+
+#search {
+    background: @surface;
+    border: 2px solid @border;
+    border-radius: 5px;
+    padding: 10px;
+    color: @text;
+    font-size: 14px;
+}
+
+#search:focus {
+    border-color: @selected-text;
+    box-shadow: 0 0 10px rgba(64, 196, 255, 0.5);
+}
+
+#list {
+    margin-top: 10px;
+}
+
+#entry {
+    padding: 10px;
+    margin: 5px 0;
+    background: @surface;
+    border-radius: 5px;
+    color: @text;
+}
+
+#entry:hover {
+    background: @overlay;
+    border-left: 3px solid @subtle;
+}
+
+#entry:selected {
+    background: linear-gradient(90deg, rgba(64, 196, 255, 0.2), rgba(0, 176, 255, 0.2));
+    border-left: 3px solid @selected-text;
+    color: @selected-text;
+}
+
+#entry #icon {
+    margin-right: 10px;
+}
+
+#entry #name {
+    font-weight: bold;
+}
+
+#entry #description {
+    color: @muted;
+    font-size: 12px;
+}
