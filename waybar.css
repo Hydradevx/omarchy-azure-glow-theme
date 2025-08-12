@@ -1,2 +1,93 @@
-@define-color foreground #E6F0FF;
-@define-color background #0A0E14;
+@define-color foreground #B3E5FC;  /* Soft glowing cyan */
+@define-color background #0A0E14;  /* Deep midnight blue */
+@define-color primary #40C4FF;     /* Bright sky blue */
+@define-color secondary #00B0FF;   /* Rich azure */
+@define-color success #00E5FF;     /* Electric cyan */
+@define-color danger #FF5252;      /* Alert red */
+@define-color warning #FFD740;     /* Vibrant yellow */
+@define-color info #82B1FF;        /* Cool periwinkle */
+@define-color light #E6F0FF;       /* Frost white */
+@define-color dark #081018;        /* Abyssal navy */
+@define-color muted #1B2A3A;       /* Dim steel blue */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(10, 14, 20, 0.9);
+    color: @foreground;
+    border-bottom: 2px solid @primary;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: @muted;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    background: rgba(64, 196, 255, 0.1);
+    color: @primary;
+    border-bottom: 3px solid @primary;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 176, 255, 0.2);
+    color: @secondary;
+}
+
+#cpu, #memory, #temperature, #network, #pulseaudio, #battery, #clock {
+    padding: 0 10px;
+    color: @foreground;
+}
+
+#cpu {
+    color: @secondary;
+}
+
+#memory {
+    color: @warning;
+}
+
+#temperature {
+    color: @danger;
+}
+
+#temperature.critical {
+    background: @danger;
+    color: @background;
+}
+
+#network {
+    color: @info;
+}
+
+#pulseaudio {
+    color: @primary;
+}
+
+#battery {
+    color: @success;
+}
+
+#battery.critical:not(.charging) {
+    background: @danger;
+    color: @background;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+#clock {
+    color: @light;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: @danger;
+    }
+}
